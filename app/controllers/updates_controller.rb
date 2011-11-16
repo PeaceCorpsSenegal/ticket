@@ -1,4 +1,7 @@
 class UpdatesController < ApplicationController
+
+  before_filter :authenticate
+
   # GET /updates
   # GET /updates.xml
   def index

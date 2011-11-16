@@ -12,3 +12,13 @@ footer {
   border-top: 1px solid #ddd;
   margin-top: 20px;
 }
+
+div#not_signed_in {
+  margin: 0 auto;
+  width: 980px;
+  padding: 200px 0;
+}
+
+div#not_signed_in p {
+  text-align: center;
+}

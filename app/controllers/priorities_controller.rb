@@ -1,4 +1,7 @@
 class PrioritiesController < ApplicationController
+
+  before_filter :authenticate
+  
   # GET /priorities
   # GET /priorities.xml
   def index

@@ -1,3 +1,5 @@
+<% if signed_in? %>
+
 <%= render @user %>
 
 <% unless @tickets.empty? %>
@@ -44,4 +46,10 @@
 <%= render @incoming %>
   </body>
 </table>
+<% end %>
+
+<% else %>
+<div id="not_signed_in">
+<p>You have reached the Peace Corps Ticketing System (unofficial). Please <%= link_to 'sign in', signin_path %> or <%= link_to 'sign up', signup_path %>.</p>
+</div>
 <% end %>

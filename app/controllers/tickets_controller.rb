@@ -1,4 +1,7 @@
 class TicketsController < ApplicationController
+
+  before_filter :authenticate
+  
   # GET /tickets
   # GET /tickets.xml
   def index

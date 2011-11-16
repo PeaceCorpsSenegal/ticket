@@ -1,4 +1,8 @@
 class CodesController < ApplicationController
+
+  before_filter :authenticate
+  
+
   # GET /codes
   # GET /codes.xml
   def index

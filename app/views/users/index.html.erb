@@ -24,8 +24,8 @@
     <td><%= user.tickets.count %></td>
     <td><%= user.incoming.count %></td>
     <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= (current_user?(user)) ? (link_to 'Edit', edit_user_path(user)) : nil %></td>
+    <td><%= (current_user.admin?) ? ( link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete ) : nil %></td>
   </tr>
 <% end %>
 </table>
