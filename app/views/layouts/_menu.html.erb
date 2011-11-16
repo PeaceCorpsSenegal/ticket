@@ -1,3 +1,6 @@
+<% if signed_in? %>
+<%= current_user.name + ', ' + current_user.email %>
+<% end %>
   <ul class="menu">
     <li><%= link_to 'home', root_path  %></li>
   </ul>
@@ -5,6 +8,7 @@
     <li><%= link_to users_path, users_path %></li>
     <li><%= link_to tickets_path, tickets_path %></li>
     <li><%= link_to updates_path, updates_path %></li>
+    <li><%= link_to owners_path, owners_path %></li>
     <li><%= link_to priorities_path, priorities_path %></li>
     <li><%= link_to codes_path, codes_path %></li>
     <li><%= link_to categories_path, categories_path %></li>

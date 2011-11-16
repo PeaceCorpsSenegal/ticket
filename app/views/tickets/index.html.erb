@@ -2,8 +2,6 @@
 
 <table>
   <tr>
-    <th>From</th>
-    <th>To</th>
     <th>Priority</th>
     <th>Ref</th>
     <th>Category</th>
@@ -16,8 +14,6 @@
 
 <% @tickets.each do |ticket| %>
   <tr>
-    <td><%= ticket.from_id %></td>
-    <td><%= ticket.to_id %></td>
     <td><%= ticket.priority_id %></td>
     <td><%= ticket.ref_id %></td>
     <td><%= ticket.category_id %></td>

@@ -1,4 +1,6 @@
 Ticket2::Application.routes.draw do
+  resources :owners
+
   resources :categories
 
   resources :codes

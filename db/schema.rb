@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111116103528) do
+ActiveRecord::Schema.define(:version => 20111116153708) do
 
   create_table "categories", :force => true do |t|
     t.string   "category"
@@ -24,6 +24,15 @@ ActiveRecord::Schema.define(:version => 20111116103528) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "color"
+  end
+
+  create_table "owners", :force => true do |t|
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.integer  "ticket_id"
+    t.integer  "code_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "priorities", :force => true do |t|

@@ -3,11 +3,13 @@ class User < ActiveRecord::Base
   attr_accessor :password
   attr_accessible :name, :email, :description, :phone, :password, :password_confirmation
 
-  has_many :tickets, :foreign_key => :from_id
-  has_many :sent_to, :through => :tickets, :source => :to
+  has_many :from, :foreign_key => :from_id, :class_name => 'Owner'
+  has_many :outgoing, :through => :from, :source => :ticket
+  has_many :sent_to, :through => :from, :source => :to
   
-  has_many :incoming, :foreign_key => :to_id, :class_name => 'Ticket'
-  has_many :received_from, :through => :incoming, :source => :from
+  has_many :to, :foreign_key => :to_id, :class_name => 'Owner'
+  has_many :incoming, :through => :to, :source => :ticket
+  has_many :received_from, :through => :to, :source => :from
   
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
