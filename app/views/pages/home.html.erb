@@ -2,7 +2,7 @@
 
 <%= render @user %>
 
-<% unless @tickets.empty? %>
+<% if !@tickets.empty? %>
 <h2>tickets you opened</h2>
 <table>
   <thead>

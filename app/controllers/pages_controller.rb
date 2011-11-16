@@ -2,7 +2,7 @@ class PagesController < ApplicationController
 
 def home
   if signed_in?
-    @user = User.find_by_id(1)
+    @user = current_user
     @tickets = @user.tickets
     @incoming = @user.incoming
   end
