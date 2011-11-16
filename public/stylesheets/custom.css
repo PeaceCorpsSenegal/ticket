@@ -1,0 +1,14 @@
+ul.menu, ul.menu li {
+  display: inline;
+  list-style: none;
+}
+
+header {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+footer {
+  border-top: 1px solid #ddd;
+  margin-top: 20px;
+}

@@ -1,0 +1,47 @@
+<%= render @user %>
+
+<% unless @tickets.empty? %>
+<h2>tickets you opened</h2>
+<table>
+  <thead>
+    <th>Created</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Priority</th>
+    <th>Ref</th>
+    <th>Category</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Status</th>
+    <th>Last Updated</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+<%= render @tickets %>
+  </body>
+</table>
+<% end %>
+
+<% unless @incoming.empty? %>
+<h2>tickets from others</h2>
+<table>
+  <thead>
+    <th>Created</th>
+    <th>From</th>
+    <th>To</th>
+    <th>Priority</th>
+    <th>Ref</th>
+    <th>Category</th>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Status</th>
+    <th>Last Updated</th>
+    <th></th>
+    <th></th>
+  </thead>
+  <tbody>
+<%= render @incoming %>
+  </body>
+</table>
+<% end %>

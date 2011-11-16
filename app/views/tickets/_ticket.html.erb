@@ -1,0 +1,14 @@
+    <tr>
+      <td><%= time_ago_in_words(ticket.created_at) %> ago</td>
+      <td><%= ticket.from.name %></td>
+      <td><%= ticket.to.name %></td>
+      <td><%= render ticket.priority %></td>
+      <td><%= ticket.ref_id %></td>
+      <td><%= ticket.category.category %></td>
+      <td><%= ticket.title %></td>
+      <td><%= ticket.content %></td>
+      <td><%= render ticket.updates.last.code %></td>
+      <td><%= time_ago_in_words(ticket.updated_at) %> ago</td>
+      <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+      <td><%= link_to 'Back', tickets_path %></td>
+    </tr>
