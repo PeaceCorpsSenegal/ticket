@@ -5,6 +5,10 @@
     <th>Code</th>
     <th>Color</th>
     <th>Description</th>
+    <th>rank</th>
+    <th>Sender</th>
+    <th>Receiver</th>
+    <th>All</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,6 +19,10 @@
     <td><%= code.code %></td>
     <td><%= code.color %></td>
     <td><%= code.description %></td>
+    <td><%= code.rank %></td>
+    <td><%= code.sender %></td>
+    <td><%= code.receiver %></td>
+    <td><%= code.all %></td>
     <td><%= link_to 'Show', code %></td>
     <td><%= link_to 'Edit', edit_code_path(code) %></td>
     <td><%= link_to 'Destroy', code, :confirm => 'Are you sure?', :method => :delete %></td>

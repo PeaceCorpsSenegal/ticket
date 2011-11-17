@@ -15,6 +15,24 @@
   <%= @code.description %>
 </p>
 
+<p>
+  <b>Rank:</b>
+  <%= @code.rank %>
+</p>
+
+<p>
+  <b>Sender:</b>
+  <%= @code.sender %>
+</p>
+<p>
+  <b>Receiver:</b>
+  <%= @code.receiver %>
+</p>
+<p>
+  <b>All:</b>
+  <%= @code.all %>
+</p>
+
 
 <%= link_to 'Edit', edit_code_path(@code) %> |
 <%= link_to 'Back', codes_path %>

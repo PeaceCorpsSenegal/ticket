@@ -23,6 +23,22 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+  <div class="field">
+    <%= f.label :rank %><br />
+    <%= f.text_field :rank %>
+  </div>
+  <div class="field">
+    <%= f.label :sender %><br />
+    <%= f.check_box :sender %>
+  </div>
+  <div class="field">
+    <%= f.label :receiver %><br />
+    <%= f.check_box :receiver %>
+  </div>
+  <div class="field">
+    <%= f.label :all %><br />
+    <%= f.check_box :all %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

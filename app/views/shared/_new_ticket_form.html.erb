@@ -17,7 +17,7 @@
   <%= tagf.hidden_field(:code_id, :value => 1) %>
 <% end %>
 
-  <table>
+  <table id="new_ticket">
     <thead>
       <th>To</th>
       <th><%= f.label :priority_id %></th>
@@ -34,14 +34,14 @@
 <%= f.fields_for :owners do |ownf| %>
   <%= ownf.hidden_field(:from_id, :value => current_user.id) %>
   <%= ownf.hidden_field(:code_id, :value => 1) %>
-  <%= ownf.collection_select(:to_id, User.all, :id, :name) %>
+  <%= ownf.collection_select(:to_id, (current_user.blank? ? User.all : User.find(:all, :conditions => ["id != ?", current_user.id])), :id, :name) %>
 <% end %>
       </td>
       <td><%= f.collection_select(:priority_id, Priority.all, :id, :priority) %></td>
-      <td><%= f.collection_select(:ref_id, current_user.outgoing.all, :id, :title) %></td>
+      <td><%= f.collection_select(:ref_id, current_user.outgoing.all + current_user.incoming.all, :id, :title) %></td>
       <td><%= f.collection_select(:category_id, Category.all, :id, :category) %></td>
       <td><%= f.text_field :title %></td>
-      <td><%= f.text_field :content %></td>
+      <td><%= f.text_area :content %></td>
       <td><%= f.submit %></td>
       </tr>
     </tbody>

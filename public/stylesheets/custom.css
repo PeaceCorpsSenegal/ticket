@@ -26,3 +26,11 @@ div#not_signed_in p {
 table {
   margin-bottom: 50px;
 }
+
+table#new_ticket td {
+  vertical-align: top;
+}
+
+table textarea {
+  height: 75px;
+}
