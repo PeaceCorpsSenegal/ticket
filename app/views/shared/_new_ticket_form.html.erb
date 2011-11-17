@@ -1,0 +1,49 @@
+<% @ticket.updates.build %>
+<% @ticket.owners.build %>
+<%= form_for(@ticket) do |f| %>
+  <% if @ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this ticket from being saved:</h2>
+
+      <ul>
+      <% @ticket.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%= f.fields_for :updates do |tagf| %>
+  <%= tagf.hidden_field(:code_id, :value => 1) %>
+<% end %>
+
+  <table>
+    <thead>
+      <th>To</th>
+      <th><%= f.label :priority_id %></th>
+      <th><%= f.label :ref_id %></th>
+      <th><%= f.label :category_id %></th>
+      <th><%= f.label :title %></th>
+      <th><%= f.label :content %></th>
+      <th></th>
+    </thead>
+    <tbody>
+      <tr>
+      <td>
+        
+<%= f.fields_for :owners do |ownf| %>
+  <%= ownf.hidden_field(:from_id, :value => current_user.id) %>
+  <%= ownf.hidden_field(:code_id, :value => 1) %>
+  <%= ownf.collection_select(:to_id, User.all, :id, :name) %>
+<% end %>
+      </td>
+      <td><%= f.collection_select(:priority_id, Priority.all, :id, :priority) %></td>
+      <td><%= f.collection_select(:ref_id, current_user.outgoing.all, :id, :title) %></td>
+      <td><%= f.collection_select(:category_id, Category.all, :id, :category) %></td>
+      <td><%= f.text_field :title %></td>
+      <td><%= f.text_field :content %></td>
+      <td><%= f.submit %></td>
+      </tr>
+    </tbody>
+  </table>
+<% end %>

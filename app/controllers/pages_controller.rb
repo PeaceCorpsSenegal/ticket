@@ -2,9 +2,9 @@ class PagesController < ApplicationController
 
 def home
   if signed_in?
-    @user = current_user
-    @outgoing = @user.outgoing
-    @incoming = @user.incoming
+    @ticket = Ticket.new
+    @outgoing = current_user.outgoing
+    @incoming = current_user.incoming
   end
 end
 

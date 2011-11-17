@@ -45,15 +45,12 @@ class TicketsController < ApplicationController
   def create
     @ticket = Ticket.new(params[:ticket])
 
-    respond_to do |format|
-      if @ticket.save
-        format.html { redirect_to(@ticket, :notice => 'Ticket was successfully created.') }
-        format.xml  { render :xml => @ticket, :status => :created, :location => @ticket }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @ticket.errors, :status => :unprocessable_entity }
-      end
+    if @ticket.save
+      redirect_to root_path
+    else
+      render 'pages/home'
     end
+
   end
 
   # PUT /tickets/1

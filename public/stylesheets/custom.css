@@ -22,3 +22,7 @@ div#not_signed_in {
 div#not_signed_in p {
   text-align: center;
 }
+
+table {
+  margin-bottom: 50px;
+}

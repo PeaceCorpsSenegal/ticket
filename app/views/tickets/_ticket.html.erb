@@ -10,5 +10,4 @@
       <td><%= render ticket.updates.last.code %></td>
       <td><%= time_ago_in_words(ticket.updates.last.created_at) %> ago</td>
       <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-      <td><%= link_to 'Back', tickets_path %></td>
     </tr>

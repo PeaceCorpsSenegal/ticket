@@ -15,7 +15,6 @@
     <th>Status</th>
     <th>Last Updated</th>
     <th></th>
-    <th></th>
   </thead>
   <tbody>
 <%= render @outgoing %>
@@ -40,7 +39,6 @@
     <th>Status</th>
     <th>Last Updated</th>
     <th></th>
-    <th></th>
   </thead>
   <tbody>
 <%= render @incoming %>
@@ -49,6 +47,9 @@
 <% else %>
 <h2>you have not received any tickets</h2>
 <% end %>
+
+<h2>open a new ticket</h2>
+<%= render 'shared/new_ticket_form' %>
 
 <% else %>
 <div id="not_signed_in">

@@ -6,6 +6,6 @@ class RemoveExtraColumnsFromTickets < ActiveRecord::Migration
 
   def self.down
     add_column :tickets, :to_id, :integer
-    add_column :tickets, :from_id, :integer,
+    add_column :tickets, :from_id, :integer
   end
 end
