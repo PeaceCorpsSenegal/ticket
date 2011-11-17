@@ -20,5 +20,9 @@ class Ticket < ActiveRecord::Base
   accepts_nested_attributes_for :owners
   
   default_scope :order => 'tickets.created_at DESC'
+  
+  def set_update!(code)
+    updates.create!(:code_id => code)
+  end
 
 end

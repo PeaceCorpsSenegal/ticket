@@ -44,15 +44,10 @@ class UpdatesController < ApplicationController
   # POST /updates.xml
   def create
     @update = Update.new(params[:update])
-
-    respond_to do |format|
-      if @update.save
-        format.html { redirect_to(@update, :notice => 'Update was successfully created.') }
-        format.xml  { render :xml => @update, :status => :created, :location => @update }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @update.errors, :status => :unprocessable_entity }
-      end
+    if @update.save
+      redirect_to root_path
+    else
+      render 'edit'
     end
   end
 
