@@ -35,3 +35,7 @@ table#new_ticket td {
 table textarea {
   height: 75px;
 }
+
+footer p {
+  padding: 0 10px;
+}
