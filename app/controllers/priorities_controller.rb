@@ -1,6 +1,6 @@
 class PrioritiesController < ApplicationController
 
-  before_filter :authenticate
+  before_filter :admin_user
   
   # GET /priorities
   # GET /priorities.xml

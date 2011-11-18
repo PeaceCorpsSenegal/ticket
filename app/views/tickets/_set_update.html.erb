@@ -1,5 +1,6 @@
 <%= form_for ticket.updates.build(:code_id => ticket.updates.last.code.id) do |f| %>
   <%= f.hidden_field(:ticket_id, :value => ticket.id) %>
+  <%= f.hidden_field(:ticket_id, :value => ticket.id) %>
   <%= f.collection_select(:code_id, (current_user.sender?(ticket)) ? Code.where(:sender => true) : Code.where(:receiver => true), :id, :code) %>
   <%= f.submit "Update" %>
 <% end %>

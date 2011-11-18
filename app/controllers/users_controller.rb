@@ -94,10 +94,6 @@ class UsersController < ApplicationController
       redirect_to(root_path) unless current_user?(@user)
     end
     
-    def admin_user
-      redirect_to(root_path) unless current_user.admin?
-    end
-    
     def signed_in
       redirect_to(root_path) if signed_in?
     end

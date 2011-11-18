@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
 
-  before_filter :authenticate
+  before_filter :admin_user
   
 
   # GET /categories
