@@ -7,7 +7,10 @@
       <td><%= ticket.category.category %></td>
       <td><%= ticket.title %></td>
       <td><%= ticket.content %></td>
-      <td><%= render ticket.updates.last.code %></td>
+      <td>
+        <%= render ticket.updates.last.code %><br/>
+        [ <%= ticket.updates.last.comment %> ]
+      </td>
       <td><%= time_ago_in_words(ticket.updates.last.created_at) %> ago</td>
       <td><%= render :partial => 'tickets/set_update', :locals => {:ticket => ticket} %></td>
     </tr>
