@@ -2,12 +2,14 @@ class User < ActiveRecord::Base
 
   attr_accessor :password
   attr_accessible :name, :email, :description, :phone, :password, :password_confirmation
+  
+  has_many :updates
 
-  has_many :from, :foreign_key => :from_id, :class_name => 'Owner'
+  has_many :from, :foreign_key => :from_id, :class_name => 'Owner', :dependent => :destroy
   has_many :outgoing, :through => :from, :source => :ticket
   has_many :sent_to, :through => :from, :source => :to
   
-  has_many :to, :foreign_key => :to_id, :class_name => 'Owner'
+  has_many :to, :foreign_key => :to_id, :class_name => 'Owner', :dependent => :destroy
   has_many :incoming, :through => :to, :source => :ticket
   has_many :received_from, :through => :to, :source => :from
   

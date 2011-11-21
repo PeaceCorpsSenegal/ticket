@@ -5,7 +5,12 @@
       <td><%= render ticket.priority %></td>
       <td><%= ticket.ref_id %></td>
       <td><%= ticket.category.category %></td>
-      <td><%= ticket.title %></td>
+      <td>
+        <%= ticket.title %>
+        <% if current_user.admin? %>
+        [ <%= link_to 'Edit', edit_ticket_path(ticket) %> ]
+        <% end %>
+      </td>
       <td><%= ticket.content %></td>
       <td>
         <%= render ticket.updates.last.code %><br/>

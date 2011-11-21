@@ -2,17 +2,22 @@
 
 <p>
   <b>Ticket:</b>
-  <%= @update.ticket_id %>
+  <%= @update.ticket.title %>
 </p>
 
 <p>
   <b>Code:</b>
-  <%= @update.code_id %>
+  <%= @update.code.code %>
 </p>
 
 <p>
   <b>Comment:</b>
   <%= @update.comment %>
+</p>
+
+<p>
+  <b>Comment by:</b>
+  <%= @update.user.name %>
 </p>
 
 
