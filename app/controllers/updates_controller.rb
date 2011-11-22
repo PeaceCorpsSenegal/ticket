@@ -44,7 +44,7 @@ class UpdatesController < ApplicationController
   # POST /updates.xml
   def create
     @update = Update.new(params[:update])
-    @update.comment = @update.comment + ' ' + @update.code.description
+    @update.comment += ' ' + @update.code.description
     if @update.save
       redirect_to root_path
     else

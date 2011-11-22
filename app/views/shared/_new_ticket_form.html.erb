@@ -16,6 +16,7 @@
 <%= f.fields_for :updates do |tagf| %>
   <%= tagf.hidden_field(:user_id, :value => current_user.id) %>
   <%= tagf.hidden_field(:code_id, :value => 1) %>
+  <%= tagf.hidden_field(:comment, :value => Code.find_by_id(1).description) %>
 <% end %>
 
   <table id="new_ticket">
