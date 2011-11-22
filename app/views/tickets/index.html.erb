@@ -1,31 +1,5 @@
-<h1>Listing tickets</h1>
+<h1>All Tickets</h1>
 
-<table>
-  <thead>
-    <th>Priority</th>
-    <th>Ref</th>
-    <th>Category</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </thead>
-
-<% @tickets.each do |ticket| %>
-  <tr>
-    <td><%= ticket.priority_id %></td>
-    <td><%= ticket.ref_id %></td>
-    <td><%= ticket.category_id %></td>
-    <td><%= ticket.title %></td>
-    <td><%= ticket.content %></td>
-    <td><%= link_to 'Show', ticket %></td>
-    <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
-    <td><%= link_to 'Destroy', ticket, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
+<%= render 'ticket_set' %>
 
 <%= link_to 'New Ticket', new_ticket_path %>

@@ -7,10 +7,7 @@ class TicketsController < ApplicationController
   def index
     @tickets = Ticket.all
 
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @tickets }
-    end
+    render 'index'
   end
 
   # GET /tickets/1

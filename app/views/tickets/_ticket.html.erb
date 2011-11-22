@@ -7,9 +7,6 @@
       <td><%= ticket.category.category %></td>
       <td>
         <%= ticket.title %>
-        <% if current_user.admin? %>
-        [ <%= link_to 'Edit', edit_ticket_path(ticket) %> ]
-        <% end %>
       </td>
       <td><%= ticket.content %></td>
       <td>
@@ -17,5 +14,11 @@
         [&nbsp;<%= ticket.updates.last.comment %>&nbsp;]
       </td>
       <td><%= time_ago_in_words(ticket.updates.last.created_at) %> ago</td>
-      <td><%= render :partial => 'tickets/set_update', :locals => {:ticket => ticket} %></td>
+      <td>
+        <%= render :partial => 'tickets/set_update', :locals => {:ticket => ticket} %>
+        <% if current_user.admin? %>
+        [&nbsp;<%= link_to 'Edit', edit_ticket_path(ticket) %>&nbsp;
+        <%= link_to 'Destroy', ticket, :confirm => 'Are you sure you want to permanently delete this ticket?', :method => :delete %>&nbsp;]
+        <% end %>
+      </td>
     </tr>
