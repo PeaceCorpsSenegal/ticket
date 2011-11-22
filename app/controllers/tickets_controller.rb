@@ -1,6 +1,7 @@
 class TicketsController < ApplicationController
 
   before_filter :authenticate
+  before_filter :admin_user, :only => [:index, :edit, :update, :destroy]
   
   # GET /tickets
   # GET /tickets.xml
@@ -14,6 +15,9 @@ class TicketsController < ApplicationController
   # GET /tickets/1.xml
   def show
     @ticket = Ticket.find(params[:id])
+    @updates = @ticket.updates
+    @owners = @ticket.owners
+    @timeline = @updates + @owners
 
     respond_to do |format|
       format.html # show.html.erb

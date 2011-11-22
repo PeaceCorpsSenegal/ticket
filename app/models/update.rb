@@ -4,6 +4,6 @@ class Update < ActiveRecord::Base
   belongs_to :code
   belongs_to :user
   
-  default_scope :order => 'updates.created_at ASC'
+  default_scope :order => 'updates.created_at DESC'
 
 end

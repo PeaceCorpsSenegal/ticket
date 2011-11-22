@@ -7,6 +7,6 @@ class Owner < ActiveRecord::Base
   belongs_to :to, :class_name => 'User'
   belongs_to :from, :class_name => 'User'
   
-  default_scope :order => 'owners.created_at ASC'
+  default_scope :order => 'owners.created_at DESC'
 
 end

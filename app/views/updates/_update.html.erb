@@ -1,0 +1,15 @@
+  <tr>
+    <td><%= update.ticket.sent_by.last.name %></td>
+    <td><%= update.ticket.sent_to.last.name %></td>
+    <td><%= update.ticket.title %></td>
+    <td><%= render update.code %></td>
+    <td><%= update.comment %></td>
+    <td><%= update.user.name %>, <%= time_ago_in_words(update.created_at) %> ago</td>
+    <td>
+    <% if current_user.admin? %>
+      [&nbsp;<%= link_to 'Show', update.ticket %> 
+      <%= link_to 'Edit', edit_update_path(update) %> 
+      <%= link_to 'Destroy', update, :confirm => 'Are you sure?', :method => :delete %>&nbsp;]
+  <% end %>
+    </td>
+  </tr>

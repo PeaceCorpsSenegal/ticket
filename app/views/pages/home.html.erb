@@ -1,51 +1,19 @@
 <% if signed_in? %>
 
 <% unless @outgoing.empty? %>
-<h2>tickets you opened</h2>
-<table>
-  <thead>
-    <th>Created</th>
-    <th>From</th>
-    <th>To</th>
-    <th>Priority</th>
-    <th>Ref</th>
-    <th>Category</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Status</th>
-    <th>Last Updated</th>
-    <th></th>
-  </thead>
-  <tbody>
-<%= render @outgoing %>
-  </body>
-</table>
+  <% @tickets = @outgoing %>
+  <h2>tickets you opened</h2>
+  <%= render 'tickets/ticket_set' %>
 <% else %>
-<h2>you have not initiated any tickets</h2><br /><br />
+  <h2>you have not initiated any tickets</h2><br /><br />
 <% end %>
 
 <% unless @incoming.empty? %>
-<h2>tickets from others</h2>
-<table>
-  <thead>
-    <th>Created</th>
-    <th>From</th>
-    <th>To</th>
-    <th>Priority</th>
-    <th>Ref</th>
-    <th>Category</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th>Status</th>
-    <th>Last Updated</th>
-    <th></th>
-  </thead>
-  <tbody>
-<%= render @incoming %>
-  </body>
-</table>
+  <% @tickets = @incoming %>
+  <h2>tickets from others</h2>
+  <%= render 'tickets/ticket_set' %>
 <% else %>
-<h2>you have not received any tickets</h2>
+  <h2>you have not received any tickets</h2>
 <% end %>
 
 <h2>open a new ticket</h2>

@@ -1,29 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Priority:</b>
-  <%= @ticket.priority_id %>
-</p>
+<h2>ticket information</h2>
+<table>
+  <thead>
+    <th><%= @ticket.title %></th>
+  </thead>
+  <tbody>
+	<tr>
+	  <td><%= @ticket.content %></td>
+	</tr>
+	<tr>
+	  <td>This ticket has was created <strong><%= time_ago_in_words(@ticket.created_at) %> ago </strong> by <%= @ticket.sent_by.last.name %>, and last updated <strong><%= time_ago_in_words(@ticket.updates.first.created_at) %> ago</strong> by <%= @ticket.sent_to.first.name %>.</td>
+	</tr>
+  </tbody>
+</table>
 
-<p>
-  <b>Ref:</b>
-  <%= @ticket.ref_id %>
-</p>
+<h2>status updates</h2>
+<%= render 'updates/update_set' %>
 
-<p>
-  <b>Category:</b>
-  <%= @ticket.category_id %>
-</p>
+<h2>ownership</h2>
+<%= render 'owners/owner_set' %>
 
-<p>
-  <b>Title:</b>
-  <%= @ticket.title %>
-</p>
+<h2>timeline</h2>
+<%= render 'tickets/timeline_set' %>
 
-<p>
-  <b>Content:</b>
-  <%= @ticket.content %>
-</p>
 
 
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |

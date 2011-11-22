@@ -1,9 +1,13 @@
   <tr>
-    <td><%= time_ago_in_words(owner.created_at) %></td>
+    <td><%= time_ago_in_words(owner.created_at) %> ago</td>
     <td><%= owner.from.name %> <%= render owner.code %> a ticket to <%= owner.to.name %></td>
     <td><%= owner.ticket.title %></td>
     <td><%= owner.ticket.content %></td>
-    <td><%= link_to 'Show', owner %></td>
-    <td><%= link_to 'Edit', edit_owner_path(owner) %></td>
-    <td><%= link_to 'Destroy', owner, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>
+      <% if current_user.admin? %>
+        [&nbsp;<%= link_to 'Show', owner %> 
+        <%= link_to 'Edit', edit_owner_path(owner) %> 
+        <%= link_to 'Destroy', owner, :confirm => 'Are you sure?', :method => :delete %>&nbsp;]
+      <% end %>
+    </td>
   </tr>
