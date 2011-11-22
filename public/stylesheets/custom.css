@@ -39,3 +39,9 @@ table textarea {
 footer p {
   padding: 0 10px;
 }
+
+div#signin {
+  margin: 0 auto;
+  width: 200px;
+  padding: 100px 0;
+}

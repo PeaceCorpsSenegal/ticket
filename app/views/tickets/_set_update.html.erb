@@ -2,6 +2,10 @@
   <%= f.hidden_field(:ticket_id, :value => ticket.id) %>
   <%= f.hidden_field(:user_id, :value => current_user.id) %>
   <%= f.text_field(:comment) %>
-  <%= f.collection_select(:code_id, (current_user.sender?(ticket)) ? Code.where(:sender => true) : Code.where(:receiver => true), :id, :code) %>
+  <% if current_user.admin? %>
+	<%= f.collection_select(:code_id, Code.all, :id, :code) %>
+  <% else %>
+    <%= f.collection_select(:code_id, (current_user.sender?(ticket)) ? Code.where(:sender => true) : Code.where(:receiver => true), :id, :code) %>
+  <% end %>
   <%= f.submit "Update" %>
 <% end %>
