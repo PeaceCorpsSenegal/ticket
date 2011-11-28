@@ -9,8 +9,8 @@
         <%= ticket.title %>
       </td>
       <td><%= ticket.content %></td>
-      <td>
-        <%= render ticket.updates.first.code %><br/>
+      <td id="code">
+        <%= render ticket.updates.first.code %>
         [&nbsp;<%= ticket.updates.first.comment %>&nbsp;]
       </td>
       <td><%= time_ago_in_words(ticket.updates.first.created_at) %> ago</td>

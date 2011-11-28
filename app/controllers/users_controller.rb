@@ -78,24 +78,25 @@ class UsersController < ApplicationController
     flash[:success] = 'User destroyed.'
     redirect_to users_path
   end
-  
+
   def tickets
     @user = User.find(params[:id])
-    @tickets = @user.tickets
+    @outgoing = @user.outgoing
     @incoming = @user.incoming
+    @ticket = Ticket.new
 
     render 'pages/home'
   end
-  
+
   private
-    
+
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_path) unless current_user?(@user)
     end
-    
+
     def signed_in
       redirect_to(root_path) if signed_in?
     end
-  
+
 end

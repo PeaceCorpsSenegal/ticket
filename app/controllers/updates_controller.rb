@@ -45,10 +45,10 @@ class UpdatesController < ApplicationController
   def create
     @update = Update.new(params[:update])
     @update.comment += ' ' + @update.code.description
-    if @update.save
-      redirect_to root_path
-    else
-      render 'edit'
+    @update.save
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js
     end
   end
 
